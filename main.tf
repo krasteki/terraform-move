@@ -32,11 +32,21 @@ module "vpc" {
   tags = var.vpc_tags
 }
 
+moved {
+  from = aws_instance.example
+  to = module.ec2_instance.aws_instance.example
+}
+
 
 module "ec2_instance" {
   source          = "./modules/compute"
   security_group = module.security_group.sg_id
   public_subnets  = module.vpc.public_subnets
+}
+
+moved {
+  from = aws_security_group.sg_8080
+  to = module.security_group.aws_security_group.sg_8080
 }
 
 module "security_group" {

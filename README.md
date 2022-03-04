@@ -24,3 +24,12 @@ This is a modified version of the initial Terraform configuration for the EC2 in
 
 4. Update configuration with modules
 Open the main.tf file and add the new module blocks to the end of your configuration.
+
+II. Move your resources with the moved configuration block
+
+In previous versions of Terraform, you had to refactor your existing infrastructure manually, by using terraform state mv to rename your resources in your project's state to match the changes to your configuration.
+
+With the moved configuration block, you can inform Terraform about all resource address changes in your configuration. Terraform also validates those changes to provide you with clearer operational output and you can safely review plans before applying.
+
+
+1. In the root main.tf file, add moved configuration blocks for each of the resources moved into modules in the previous step.
