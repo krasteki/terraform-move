@@ -33,3 +33,9 @@ With the moved configuration block, you can inform Terraform about all resource 
 
 
 1. In the root main.tf file, add moved configuration blocks for each of the resources moved into modules in the previous step.
+
+III. Rename and move a resource
+
+1. Rename your vpc module, and update the references to it in the rest of your configuration.
+
+2. Add the moved block for your VPC changes at the bottom of the file.
